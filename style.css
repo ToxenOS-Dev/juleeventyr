@@ -1,0 +1,189 @@
+/* ================================
+   Christmas Adventure Theme (NO JS)
+   Clean Version – No Lights
+   Fullscreen Layout, Internal Scroll Box
+   ================================ */
+
+/* ---------- Color Variables ---------- */
+:root {
+    --christmas-red: #d62828;
+    --christmas-green: #2a9d8f;
+    --gold: #ffd166;
+    --snow-white: #ffffff;
+    --bg-dark-1: #0b1a2e;
+    --bg-dark-2: #1c2942;
+}
+
+/* ---------- Base ---------- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    color: var(--snow-white);
+
+    /* ❄ dark Christmas background */
+    background: linear-gradient(var(--bg-dark-1), var(--bg-dark-2));
+
+    overflow: hidden; /* ❗ No page scrolling */
+}
+
+/* ---------- Snow Background Layer ---------- */
+.snow,
+.snow:before,
+.snow:after {
+    position: absolute;
+    top: -650px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    pointer-events: none; /* ❗ Snow never blocks clicking */
+
+    background-image:
+        radial-gradient(4px 4px at 100px 50px, #fff 100%, transparent 0%),
+        radial-gradient(6px 6px at 200px 150px, #fff, transparent 0%),
+        radial-gradient(3px 3px at 300px 250px, #fff 100%, transparent 0%),
+        radial-gradient(4px 4px at 400px 350px, #fff 50%, transparent 0%),
+        radial-gradient(6px 6px at 500px 100px, #fff 50%, transparent 0%),
+        radial-gradient(6px 6px at 50px 200px, #fff 50%, transparent 0%),
+        radial-gradient(4px 4px at 150px 350px, #fff 50%, transparent 0%),
+        radial-gradient(6px 6px at 250px 400px, #fff 50%, transparent 0%),
+        radial-gradient(6px 6px at 350px 500px, #fff 50%, transparent 0%),
+        radial-gradient(4px 4px at 150px 600px, #fff 50%, transparent 0%),
+        radial-gradient(6px 6px at 350px 700px, #fff 100%, transparent 0%),
+        radial-gradient(6px 6px at 450px 800px, #fff 100%, transparent 0%);
+    
+    background-size: 650px 650px;
+    animation: snow 3s linear infinite;
+    content: "";
+}
+
+.snow::after {
+    margin-left: -250px;
+    opacity: 0.5;
+    filter: blur(2px);
+    animation-duration: 6s;
+    animation-direction: reverse;
+}
+
+.snow:before {
+    margin-left: -350px;
+    opacity: 0.7;
+    filter: blur(1px);
+    animation-duration: 9s;
+}
+
+@keyframes snow {
+    to { transform: translateY(650px); }
+}
+
+/* ---------- Story Container ---------- */
+.container {
+    max-width: 900px;
+    height: 100vh; /* Takes full screen */
+    overflow-y: auto; /* Internal scroll only */
+    padding: 28px;
+
+    margin: 0 auto;
+
+    /* frosted Christmas card look */
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ---------- Headings ---------- */
+h1 {
+    font-family: "Mountains of Christmas", cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--gold);
+    margin-top: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ---------- Typography ---------- */
+p {
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin: 0 0 14px;
+    color: rgba(255,255,255,0.95);
+}
+
+ul {
+    margin-left: 1.1rem;
+}
+
+li {
+    margin: 6px 0;
+}
+
+/* ---------- Code Blocks ---------- */
+pre {
+    background: rgba(0,0,0,0.25);
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow-x: auto;
+    font-family: ui-monospace, monospace;
+    color: #ffeecc;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.4);
+}
+
+pre::before {
+    content: "❄ ";
+    opacity: 0.7;
+}
+
+/* ---------- Buttons ---------- */
+a.btn-christmas,
+a[href] {
+    display: inline-block;
+    background: linear-gradient(180deg, var(--christmas-red), #a01515);
+    border: 2px solid var(--gold);
+    padding: 10px 18px;
+    margin: 4px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+    transition: 0.2s ease;
+}
+
+a.btn-christmas:hover,
+a[href]:hover {
+    background: linear-gradient(180deg, var(--christmas-green), #1e6f64);
+    transform: translateY(-3px);
+}
+
+/* ---------- Focus Styles ---------- */
+a:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255,209,102,0.3);
+}
+
+/* ---------- Mobile Tweaks ---------- */
+@media (max-width: 680px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    a.btn-christmas,
+    a[href] {
+        width: 100%;
+        text-align: center;
+    }
+}
