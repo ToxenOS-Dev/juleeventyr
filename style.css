@@ -173,17 +173,57 @@ a:focus {
 
 /* ---------- Mobile Tweaks ---------- */
 @media (max-width: 680px) {
+
+    html, body {
+        height: 100%;
+        overflow: hidden; /* no page scroll */
+    }
+
+    /* Use dynamic viewport height to avoid browser bar issues */
     .container {
-        padding: 20px;
+        height: calc(100dvh - 20px); /* PERFECT for mobile */
+        margin: 10px;
+        padding: 16px;
+
+        border-radius: 12px;
+
+        overflow-y: auto; /* scroll INSIDE container */
+        -webkit-overflow-scrolling: touch; /* smooth iPhone scrolling */
     }
 
     h1 {
-        font-size: 2.3rem;
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    p, li {
+        font-size: 0.95rem;
+        line-height: 1.45;
+    }
+
+    pre {
+        font-size: 0.8rem;
+        padding: 10px;
+        border-radius: 6px;
     }
 
     a.btn-christmas,
     a[href] {
         width: 100%;
         text-align: center;
+        padding: 14px;
+        margin-top: 12px;
+        font-size: 1rem;
+        border-radius: 8px;
+    }
+
+    /* Snow lighter for mobile battery + readability */
+    .snow,
+    .snow:before,
+    .snow:after {
+        opacity: 0.25;
+        filter: blur(1px);
     }
 }
+
